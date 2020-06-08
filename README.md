@@ -1,2 +1,2 @@
-# gluon-centernet
-Extension of CenterNet implementation in GluonCV to allow for retraining
+# gluon-utils
+Collection of utilities to complement or extend the functionality of Gluon and GluonCV
