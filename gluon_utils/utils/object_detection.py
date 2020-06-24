@@ -43,3 +43,23 @@ def resize_bbox(bbox, orig_scale, target_scale):
     resize[3] = (resize[3]*target_scale[1])/orig_scale[1]
 
     return resize
+	
+def resize_bboxes(bbox, orig_scale, target_scale):
+    """Resize a series of bounding boxes from an image of size `orig_scale` to an image of size `target_scale`
+
+    Args:
+        bbox (np.NDArray): Bounding boxes stored in tlbr format
+        orig_scale (tuple): Width and height for of the image that the bounding box comes from
+        target_scale (tuple): Width and height to scale target
+
+    Returns:
+        np.NDArray: Bounding box scaled to the new dimensions
+    """
+    resize = np.asarray(bbox).copy()
+
+    resize[:,0] = (resize[:,0]*target_scale[0])/orig_scale[0]
+    resize[:,2] = (resize[:,2]*target_scale[0])/orig_scale[0]
+    resize[:,1] = (resize[:,1]*target_scale[1])/orig_scale[1]
+    resize[:,3] = (resize[:,3]*target_scale[1])/orig_scale[1]
+
+    return resize
